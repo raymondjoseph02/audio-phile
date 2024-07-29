@@ -448,7 +448,7 @@ body {
   background-size: 100% 100%;
   border-radius: 8px;
   background-color: var(---off-white);
-  background-image: url(/assets/home/desktop/image/guy\ with\ headphone.png);
+  background-image: url(../assets/home/desktop/image/guy\ with\ headphone.png);
 }
 .banner-section .banner-textcontent {
   width: 445px;
@@ -770,7 +770,7 @@ body {
   .banner-section .banner-image {
     width: 90vw;
     height: 300px;
-    background-image: url(/assets/home/tablet/Bitmap.png);
+    background-image: url(../assets/home/tablet/Bitmap.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 300px;
