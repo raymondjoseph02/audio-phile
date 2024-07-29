@@ -1,0 +1,267 @@
+:root {
+  ---burnt-orange: #d87d4a;
+  ---charcoal: #101010;
+  ---off-white: #f1f1f1;
+  ---snow-white: #fafafa;
+  ---peach: #fbaf85;
+  ---pure-white: #ffffff;
+  ---pure-black: #000000;
+  ---light-black: rgb(19, 19, 19);
+}
+
+@mixin heading1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  line-height: 3.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading2 {
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  line-height: 2.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading3 {
+  font-size: 2rem;
+  letter-spacing: 1.15px;
+  line-height: 2.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h4 {
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  line-height: 2.37rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h5 {
+  font-size: 1.5rem;
+  letter-spacing: 1.7px;
+  line-height: 2.06rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h6 {
+  font-size: 1.12rem;
+  letter-spacing: 1.3px;
+  line-height: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin overline {
+  font-size: 0.87rem;
+  letter-spacing: 10px;
+  line-height: 1.18rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin sub-title {
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin m-sub-title {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin defaultBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: var(---pure-white);
+}
+@mixin tranprentBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+header {
+  background-color: var(---charcoal);
+  height: 300px;
+  div {
+    height: 100%;
+    @include heading2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      color: var(---pure-white);
+      text-decoration: none;
+    }
+  }
+}
+#circleDiv{
+  background-color: var(---burnt-orange);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  @include sub-title;
+}
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  flex-direction: column;
+
+  #hp-prduts-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 70px;
+
+    .hp-xx99-mark-ii {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 540px 445px;
+      justify-content: center;
+      align-items: center;
+      gap: 125px;
+
+      .hp-xx99-mark-ii-img {
+        border-radius: 8px;
+        // width: 540px;
+        img {
+          width: 100%;
+        }
+      }
+      .hp-xx99-mark-ii-text {
+        display: flex;
+        flex-direction: column;
+        #prdut-status {
+          @include m-sub-title;
+          color: var(---burnt-orange);
+        }
+
+        .prdut-title {
+          @include heading2;
+          margin-bottom: 22px;
+        }
+        .prdut-description {
+          @include heading1;
+        }
+        .prdut-btn {
+          @include defaultBtn;
+          background-color: var(---burnt-orange);
+          padding: 13px 29px 15px 25px;
+          text-decoration: none;
+          margin-top: 40px;
+        }
+        .prdut-btn:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+    .marginblock {
+      margin-top: 140px;
+      margin-bottom: 140px;
+    }
+  }
+}
+
+
+
+.xx99-mark-one-headphones{
+  display: grid;
+  grid-template-columns:540px 445px ;
+  grid-template-areas:
+  "item2 item1"
+  ;
+}
+
+.xx99-mark-one-headphones-image{
+  grid-area: item1;
+}
+.xx99-mark-one-headphones-text{
+  grid-area: item2;
+}
+.banner-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 125px;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 1199px) {
+  #hp-prduts-wrapper {
+    width: 90%;
+    .hp-xx99-mark-ii {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 52px;
+      .hp-xx99-mark-ii-img {
+        width: 100%;
+        height: 452px;
+        background-color: var(---snow-white);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .hp-xx99-mark-ii-text {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-wrap: wrap;
+        .prdut-title {
+          width: 500px;
+        }
+      }
+    }
+  }
+}
+
+// mobile screen
+@media (max-width: 900px) {
+  header {
+    background-color: var(---charcoal);
+    height: 170px;
+    div {
+      height: 100%;
+      @include h5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        color: var(---pure-white);
+        text-decoration: none;
+      }
+    }
+  }
+  #hp-prduts-wrapper{
+    padding-bottom: 30PX;
+    .hp-xx99-mark-ii{
+      .hp-xx99-mark-ii-text{
+        .prdut-title{
+          width: fit-content;
+        }
+      }
+    }
+  }
+}

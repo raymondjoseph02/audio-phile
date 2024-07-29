@@ -1,0 +1,167 @@
+:root {
+  ---burnt-orange: #d87d4a;
+  ---charcoal: #101010;
+  ---off-white: #f1f1f1;
+  ---snow-white: #fafafa;
+  ---peach: #fbaf85;
+  ---pure-white: #ffffff;
+  ---pure-black: #000000;
+  ---light-black: rgb(19, 19, 19);
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.141);
+  font-family: "Manrope", sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  flex-direction: column;
+}
+
+#hp-prduts-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.hp-xx99-mark-ii {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 540px 445px;
+  justify-content: center;
+  align-items: center;
+  gap: 125px;
+}
+
+.hp-xx99-mark-ii-img {
+  border-radius: 8px;
+}
+.hp-xx99-mark-ii-img img {
+  width: 100%;
+}
+
+.hp-xx99-mark-ii-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.prdut-btn {
+  width: 160px;
+  height: 48px;
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  color: var(---pure-white);
+  background-color: var(---burnt-orange);
+  padding: 13px 29px 15px 31px;
+  text-decoration: none;
+  margin-top: 40px;
+}
+
+.prdut-status {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(---burnt-orange);
+}
+
+.prdut-title {
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  line-height: 2.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.prdut-description {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  line-height: 3.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.prdut-btn:hover {
+  opacity: 0.9;
+}
+
+.zx7-speaker {
+  display: grid;
+  grid-template-columns: 540px 445px;
+  grid-template-areas: "item2 item1";
+}
+
+.zx7-speaker-image {
+  grid-area: item1;
+}
+
+.zx7-speaker-text {
+  grid-area: item2;
+}
+
+@media (max-width: 1199px) {
+  #hp-prduts-wrapper {
+    width: 90%;
+  }
+  #hp-prduts-wrapper .hp-xx99-mark-ii {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 52px;
+  }
+  #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-img {
+    width: 100%;
+    height: 452px;
+    background-color: var(---snow-white);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-text {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: wrap;
+  }
+  #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-text .prdut-title {
+    width: 500px;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    background-color: var(---charcoal);
+    height: 170px;
+  }
+  header div {
+    height: 100%;
+    font-size: 1.5rem;
+    letter-spacing: 1.7px;
+    line-height: 2.06rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header div a {
+    color: var(---pure-white);
+    text-decoration: none;
+  }
+  #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-text .prdut-title {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}

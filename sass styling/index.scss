@@ -1,0 +1,990 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+:root {
+  ---burnt-orange: #d87d4a;
+  ---charcoal: #101010;
+  ---off-white: #f1f1f1;
+  ---snow-white: #fafafa;
+  ---peach: #fbaf85;
+  ---pure-white: #ffffff;
+  ---pure-black: #000000;
+  ---light-black: #131313;
+}
+
+@mixin heading1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  line-height: 3.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading2 {
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  line-height: 2.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading3 {
+  font-size: 2rem;
+  letter-spacing: 1.15px;
+  line-height: 2.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h4 {
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  line-height: 2.37rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h5 {
+  font-size: 1.5rem;
+  letter-spacing: 1.7px;
+  line-height: 2.06rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h6 {
+  font-size: 1.12rem;
+  letter-spacing: 1.3px;
+  line-height: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin overline {
+  font-size: 0.87rem;
+  letter-spacing: 10px;
+  line-height: 1.18rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin sub-title {
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin m-sub-title {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin defaultBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: var(---pure-white);
+}
+@mixin tranprentBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.image-price-wrapper{
+  display: grid !important;
+  grid-template-columns: 60% 35%;
+  .img-price{
+    display: flex;
+    gap: 10px;
+  }
+
+}
+.items-in-cart{
+  display: flex !important;
+  flex-direction: column ;
+  gap: 15px;
+}
+#cartIcon{
+  position: relative;
+}
+.circle{
+  
+  position: absolute;
+  padding: 9.9px;
+  top: -15px;
+  right: -7px;
+  @include m-sub-title;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: var(---pure-white);
+  color: red;
+}
+main {
+  padding: 0;
+}
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: rgba(0, 0, 0, 0.141);
+}
+.position-fixed {
+  position: fixed;
+}
+.navigation-wrapper-section {
+  display: flex;
+  justify-content: center;
+  background-color: var(---charcoal);
+  .navigation-wrapper {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 2rem 10rem 0rem;
+    align-items: center;
+    justify-content: center;
+    gap: 16.03rem;
+    padding-bottom: 20px;
+
+    .nav-links {
+      @include sub-title;
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      a {
+        color: var(---pure-white);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(---burnt-orange);
+      }
+      a.visited {
+        color: red;
+      }
+    }
+  }
+}
+
+#signOutBtn{
+  @include sub-title;
+  background-color: transparent;
+  color: #FFF;
+  padding: 3px 5px;
+  border-bottom: 1px solid #d87d4a;
+  border-right: 1px solid #d87d4a;
+  border-left: 3px solid #f9f8f8;
+  border-top: 1px solid #f5f3f2;
+  box-shadow: 1px 1px 21px 1px #FFF;
+  cursor: pointer;
+  
+}
+.nav-audiophile-logo {
+  .ham-buger {
+    display: none;
+    .ham-menu {
+      height: 24px;
+    }
+  }
+}
+.hero-section {
+  display: flex;
+  background-color: var(---light-black);
+  align-items: center;
+  justify-content: center;
+  gap: 15%;
+  border-radius: 2px;
+  .product-textcontent {
+    color: var(---pure-white);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .subtitle {
+      @include overline;
+      opacity: 40%;
+    }
+    .product-title {
+      width: 396px;
+      h1 {
+        @include heading1;
+      }
+    }
+    .product-description {
+      width: 349px;
+
+      @include m-sub-title;
+    }
+    button {
+      @include defaultBtn;
+      background-color: var(---burnt-orange);
+      a {
+        color: var(---pure-white);
+        text-decoration: none;
+      }
+    }
+    button:hover {
+      background-color: var(---peach);
+    }
+  }
+  .product-image {
+    img {
+      height: 486px;
+    }
+  }
+}
+.opacity-js {
+  opacity: 0.9;
+}
+
+.second-section {
+  display: flex;
+  justify-content: center;
+  .product-shop-section {
+    // width: 1110px;
+    height: 284px;
+    display: grid;
+    grid-template-columns: 355px 355px 355px;
+    gap: 22px;
+    margin-block: 120px;
+    div {
+      height: 204px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(---off-white);
+      border-radius: 12px;
+      img {
+        transform: translatey(-60px);
+        width: 125px;
+      }
+      p {
+        @include h6;
+        transform: translatey(-30px);
+      }
+      .earphone-para {
+        @include h6;
+        transform: translatey(-24px);
+      }
+      button {
+        @include tranprentBtn;
+        transform: translatey(-30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        a {
+          text-decoration: none;
+          color: rgb(0, 0, 0, 0.5);
+        }
+        button:hover {
+          color: var(---burnt-orange);
+        }
+        #arrow-head:hover {
+          stroke: var(---burnt-orange);
+        }
+      }
+    }
+  }
+}
+
+.show-case-products {
+  display: grid;
+  grid-template-areas:
+    "firstsection firstsection  firstsection"
+    "secondsection secondsection secondsection"
+    "thirdsection thirdsection thirdsection ";
+  grid-template-rows: auto;
+  row-gap: 48px;
+  align-items: center;
+  justify-content: center;
+}
+.speaker-zx9 {
+  grid-area: firstsection;
+  height: 560px;
+  display: flex;
+  background-color: var(---burnt-orange);
+  align-items: center;
+  justify-content: center;
+  gap: 138px;
+  overflow: hidden;
+  border-radius: 8px;
+  img {
+    width: 410px;
+    height: 493px;
+    transform: translatey(50px);
+  }
+  .speaker-zx9-textcontent {
+    width: 349px;
+    height: 303px;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      @include heading1;
+      color: var(---pure-white);
+    }
+    p {
+      @include m-sub-title;
+      opacity: 75%;
+      color: var(---pure-white);
+      padding-top: 24px;
+      padding-bottom: 40px;
+    }
+    button {
+      @include defaultBtn;
+      background: var(---pure-black);
+      a {
+        text-decoration: none;
+        color: var(---pure-white);
+      }
+    }
+    button:hover{
+      background-color:#232121b4;
+    }
+    button:hover a{
+      color: var(---pure-white);
+    }
+  }
+}
+.speaker-zx7 {
+  grid-area: secondsection;
+  height: 320px;
+  padding-left: 95px;
+  border-radius: 8px;
+  .speaker-zx7-textcontext {
+    // width: 204px;
+    display: flex;
+    height: 118px;
+    gap: 32px;
+    flex-direction: column;
+    transform: translatey(100px);
+    h2 {
+      @include h4;
+      color: var(---charcoal);
+    }
+    button {
+      @include tranprentBtn;
+      background-color: transparent;
+      border: 2px solid var(---charcoal);
+
+      a {
+        text-decoration: none;
+        color: var(---charcoal);
+      }
+    }
+    button:hover{
+      background-color: var(---charcoal);
+    }
+    button:hover a{
+      color: var(---pure-white);
+    }
+  }
+}
+.earphone {
+  grid-area: thirdsection;
+  height: 320px;
+  display: flex;
+  gap: 30px;
+  img {
+    border-radius: 8px;
+  }
+}
+.earphone-text {
+  width: 520px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(---off-white);
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-radius: 8px;
+
+  h2 {
+    @include h4;
+  }
+  button {
+    @include tranprentBtn;
+    border: 2px solid var(---charcoal);
+    a {
+      text-decoration: none;
+      color: var(---charcoal);
+    }
+  }
+  button:hover{
+    background-color: var(---charcoal);
+  }
+  button:hover a{
+    color: var(---pure-white);
+  }
+}
+.banner-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 125px;
+  margin-top: 200px;
+  .banner-image {
+    width: 40%;
+    height: 586px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    background-color: var(---off-white);
+    // background-image: url(../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg);
+    background-image: url(/assets/home/desktop/image/guy\ with\ headphone.png);
+
+    // idg {
+    //   width: 100%;
+    //   height: 100%;
+    // }
+  }
+  .banner-textcontent {
+    width: 445px;
+    h2 {
+      @include heading2;
+      padding-bottom: 32px;
+      .best-text-span {
+        color: var(---burnt-orange);
+      }
+    }
+    p {
+      @include m-sub-title;
+    }
+  }
+  // img {
+  //   width: 540px;
+  //   height: 100%;
+  // }
+}
+.footer-section {
+  margin-top: 200px;
+  background-color: var(---charcoal);
+  display: flex;
+  flex-direction: column;
+  padding-top: 75px;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  padding-bottom: 40px;
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 89%;
+    .fot-nav-link {
+      @include sub-title;
+      display: flex;
+      gap: 34px;
+      flex-direction: row;
+      a {
+        text-decoration: none;
+        color: var(---pure-white);
+      }
+      a:hover {
+        color: var(---burnt-orange);
+      }
+    }
+  }
+  .about-audiophile {
+    display: flex;
+    color: var(---pure-white);
+    width: 80%;
+    // padding-left: 40px;
+
+    .about-text {
+      width: 100%;
+      @include m-sub-title;
+      .about-text-firstpara {
+        padding-bottom: 56px;
+      }
+      .about-text-firstpara {
+        width: 540px;
+      }
+      .about-text-secpara {
+        display: flex;
+        height: 30px;
+        justify-content: space-between;
+      }
+    }
+    .about-social-media-icon {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-self: center;
+      #facebok-logo:hover,
+      #twitter-logo:hover,
+      #instgrame-logo:hover {
+        fill: var(---burnt-orange);
+      }
+    }
+  }
+}
+
+// media querey
+
+@media (min-width: 1199px) {
+  .navigation-wrapper-section {
+    .navigation-wrapper {
+      margin: 2rem 2rem 0rem;
+      .nav-links {
+        @include sub-title;
+        display: flex;
+        gap: 34px;
+        a {
+          color: var(---pure-white);
+          text-decoration: none;
+        }
+        a:hover {
+          color: var(---burnt-orange);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1199px) {
+  .navigation-wrapper-section {
+    .navigation-wrapper {
+      margin: 2rem 1.9rem 0rem;
+      gap: 75%;
+      display: flex;
+      width: 100%;
+      padding-bottom: 10px;
+      .ham-buger {
+        display: flex;
+
+        .ham-menu {
+          background-color: var(---pure-black);
+          position: relative;
+          width: 24px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 24px;
+          outline: none;
+          border: 0;
+
+          .hamburger {
+            width: 100%;
+            height: 4px;
+            background-color: var(---pure-white);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.3s ease;
+            z-index: 2;
+          }
+        }
+      }
+      // .ham-buger .ps-fixed{
+      //   position: fixed;
+      //   z-index: 2;
+      //   top: 0;
+      // }
+      #signOutBtn{
+  @include sub-title;
+  background-color: transparent;
+  color: #FFF;
+  padding: 3px 5px;
+  border-bottom: 1px solid #141414;
+  border-right: 1px solid #1e1d1d;
+  border-left: 3px solid #f9f8f8;
+  border-top: 1px solid #f5f3f2;
+  box-shadow: 1px 1px 21px 1px #FFF;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  
+}
+
+      .ham-buger button .hamburger:nth-of-type(3) {
+        top: 95%;
+      }
+      .ham-buger button .hamburger:nth-of-type(1) {
+        top: 25%;
+      }
+      .ham-buger button .hamburger:nth-of-type(2) {
+        top: 55%;
+      }
+      .ham-menu .active {
+        position: fixed;
+        top: 0;
+      }
+
+      .ham-buger button.active .hamburger:nth-of-type(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+        top: 50%;
+      }
+
+      .ham-buger button.active .hamburger:nth-of-type(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        top: 50%;
+      }
+      .ham-buger button.active .hamburger:nth-of-type(2) {
+        opacity: 0;
+      }
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        background-color: var(---burnt-orange);
+        top: 0;
+        height: 100%;
+        left: -470px;
+        max-width: 170px;
+        padding: 94px 24px;
+        transition: 0.3s ease;
+        z-index: 1;
+        align-items: flex-start;
+      }
+    }
+    .nav-links.active {
+      left: 0;
+    }
+    .nav-links-overley {
+      width: 100vw;
+      height: 100vh;
+      background-color: #00000034;
+      position: relative;
+    }
+  }
+  .nav-audiophile-logo {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-section {
+    height: 726px;
+    background-image: url(/tablet-bck-img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(---light-black);
+
+    .product-textcontent {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+    .product-image {
+      display: none;
+    }
+  }
+  .second-section {
+    display: flex;
+
+    justify-content: center;
+    .product-shop-section {
+      height: 284px;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      div {
+        height: 204px;
+        min-width: 50%;
+        max-width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(---off-white);
+        border-radius: 12px;
+      }
+    }
+  }
+  .show-case-products {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    .speaker-zx9 {
+      width: 90vw;
+      display: flex;
+      flex-direction: column;
+      padding-left: 20px;
+      height: 720px;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+
+      img {
+        height: 237px;
+        width: 197px;
+        transform: translateY(15px);
+      }
+      .speaker-zx9-textcontent {
+        align-items: center;
+        text-align: center;
+      }
+    }
+    .speaker-zx7 {
+      width: 90vw;
+    }
+    .earphone {
+      width: 90vw;
+      gap: 5%;
+    }
+    .earphone-image {
+      width: 47.5%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .earphone-text {
+      width: 47.5%;
+      padding-inline: 30px;
+    }
+  }
+  .banner-section {
+    flex-direction: column-reverse;
+    margin-top: 100px;
+    .banner-textcontent {
+      width: 90vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-bottom: 80px;
+      h2 {
+        width: 573px;
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    .banner-image {
+      width: 90vw;
+      height: 300px;
+      background-image: url(/assets/home/tablet/Bitmap.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 300px;
+
+      img {
+        width: 100%;
+        height: 300px;
+      }
+    }
+  }
+  .footer-section {
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 10%;
+    padding-bottom: 40px;
+    .footer-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 40px;
+    }
+    .about-audiophile {
+      flex-direction: column;
+      gap: 40px;
+      width: 100%;
+      .about-text {
+        width: 100%;
+      }
+      .about-text-firstpara {
+        width: 100% !important;
+      }
+      .about-text-secpara {
+        display: flex;
+        height: 35px;
+        justify-content: space-between;
+        .about-social-media-icon {
+          height: 24px;
+        }
+        .secpara {
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .navigation-wrapper-section {
+    .navigation-wrapper {
+      margin: 2rem 1.9rem 0rem;
+      // padding: 0 20px;
+      gap: 65%;
+      display: flex;
+      width: 100%;
+    }
+  }
+  .nav-audiophile-logo {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .second-section {
+    display: flex;
+
+    justify-content: center;
+    .product-shop-section {
+      height: 284px;
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      div {
+        height: 204px;
+        min-width: 20%;
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(---off-white);
+        border-radius: 12px;
+        img {
+          width: 90px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767.98px) {
+  .navigation-wrapper-section {
+    .navigation-wrapper {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 0px;
+      align-items: center;
+      .nav-audiophile-logo {
+        display: flex;
+        justify-content: space-between;
+      }
+      .nav-icon {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  .hero-section {
+    background-size: 100%;
+    .product-title {
+      h1 {
+        font-size: 2rem !important;
+        text-wrap: wrap;
+      }
+    }
+
+    .product-description {
+      width: 70% !important;
+      text-wrap: wrap !important;
+    }
+  }
+  .second-section {
+    padding: 0;
+    padding: 60px 0px;
+    .product-shop-section {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 90%;
+      align-items: center;
+      gap: 60px;
+      margin: 0;
+      div {
+        // max-width: 100%;
+        min-width: 90%;
+      }
+    }
+  }
+  .show-case-products {
+    display: flex;
+    flex-direction: column;
+    .speaker-zx7 {
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-left: 0;
+      justify-content: center;
+      display: flex;
+    }
+
+    .earphone {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      gap: 40px;
+      .earphone-image {
+        width: 100%;
+      }
+      .earphone-text {
+        width: 100%;
+        height: 320px;
+      }
+    }
+  }
+  .banner-section {
+    margin-top: 70px;
+    .banner-textcontent {
+      width: 90%;
+      h2 {
+        width: auto;
+      }
+    }
+  }
+
+  .footer-section {
+    .footer-nav {
+      align-items: center;
+      padding: 0;
+      .fot-nav-link {
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    .about-audiophile {
+      width: 100%;
+      height: auto;
+      padding-bottom: 20px;
+      .about-text-firstpara {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 50px !important;
+        text-align: center;
+      }
+      .about-text-secpara {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .hero-section {
+    background-size: 130%;
+  }
+}
+@media (max-width: 416px) {
+  .product-textcontent {
+    width: 90%;
+    .product-title {
+      width: 100%;
+    }
+  }
+  .hero-section {
+    background-size: 130%;
+  }
+}

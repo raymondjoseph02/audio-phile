@@ -1,0 +1,545 @@
+:root {
+  ---burnt-orange: #d87d4a;
+  ---charcoal: #101010;
+  ---off-white: #f1f1f1;
+  ---snow-white: #fafafa;
+  ---peach: #fbaf85;
+  ---pure-white: #ffffff;
+  ---pure-black: #000000;
+  ---light-black: rgb(19, 19, 19);
+  ---check-white: #cfcfcf;
+}
+
+@mixin heading1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  line-height: 3.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading2 {
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  line-height: 2.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin heading3 {
+  font-size: 2rem;
+  letter-spacing: 1.15px;
+  line-height: 2.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h4 {
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  line-height: 2.37rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h5 {
+  font-size: 1.5rem;
+  letter-spacing: 1.7px;
+  line-height: 2.06rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin h6 {
+  font-size: 1.12rem;
+  letter-spacing: 1.3px;
+  line-height: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin overline {
+  font-size: 0.87rem;
+  letter-spacing: 10px;
+  line-height: 1.18rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin overline2 {
+  font-size: 0.87rem;
+  // letter-spacing: 10px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 50%;
+}
+@mixin sub-title {
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@mixin m-sub-title {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@mixin m-sub-title2 {
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@mixin very-small {
+  font-size: 0.75rem;
+  letter-spacing: -0.21px;
+  line-height: 1.02rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+@mixin defaultBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: var(---pure-white);
+}
+@mixin tranprentBtn {
+  width: 160px;
+  height: 48px;
+  @include sub-title;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+@mixin inputdefault {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+}
+@mixin errormessage {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.21;
+  line-height: 16.39px;
+  color: #cd2c2c;
+}
+body {
+  background-color: var(---off-white);
+  
+}
+#toSignIn{
+  cursor: pointer;
+}
+.continue-btn-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.d-none{
+  display:none;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#signup-form {
+  transition: all 2.9s ease forward;
+}
+.displayNone {
+  animation: displayanima 3s ease;
+  opacity: 0;
+
+}
+@keyframes displayanima {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .3;
+    display: none;
+    transform: scale(.3);
+
+  }
+}
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .cart-modal-wrapper,
+  .loginForm {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 29px;
+
+
+    .cart-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 54px;
+      background-color: var(---pure-white);
+      border-radius: 8px;
+      align-items: center;
+      padding: 30px;
+      justify-content: center;
+      .password-error {
+        color: red;
+        display: none;
+        width: 50%;
+        justify-content: center;
+      }
+      label {
+        @include very-small;
+      }
+
+      h3 {
+        @include heading3;
+        padding-bottom: 16px;
+        text-transform: capitalize;
+      }
+      p {
+        @include sub-title;
+        color: var(---burnt-orange);
+      }
+      .billing-details {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        .name-email {
+          display: flex;
+          gap: 16px;
+
+          input:focus {
+            border: 1px solid var(---burnt-orange);
+            outline: 1px solid var(---burnt-orange);
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            input {
+              @include inputdefault;
+              @include m-sub-title2;
+              text-transform: capitalize;
+              caret-color: var(---burnt-orange);
+            }
+            #email {
+              @include inputdefault;
+              @include m-sub-title2;
+              text-transform: none;
+            }
+            .label-container {
+              display: grid;
+              grid-template-columns: 1fr 2fr;
+              .emailerrorMessage,
+              .nameerrormessage {
+                display: none;
+                justify-content: right;
+                @include errormessage;
+              }
+            }
+          }
+        }
+        .number {
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+          input:focus {
+            border: 1px solid var(---burnt-orange);
+            outline: 1px solid var(---burnt-orange);
+          }
+          input {
+            @include inputdefault;
+            @include m-sub-title2;
+            text-transform: capitalize;
+            text-overflow: ellipsis;
+
+          }
+          .label-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            // background-color: red;
+            width: 320px;
+            .phonenoerrorMessage {
+              display: none;
+              justify-content: right;
+              @include errormessage;
+            }
+          }
+        }
+      }
+    }
+    .summary {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      input:focus {
+        border: 1px solid var(---burnt-orange);
+        outline: 1px solid var(---burnt-orange);
+      }
+      input {
+        @include inputdefault;
+        @include m-sub-title2;
+        text-transform: capitalize;
+      }
+      .address {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .zipcode-city {
+        display: flex;
+        gap: 16px;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+        }
+      }
+      .country {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+    }
+    .payment-method {
+      display: flex;
+      gap: 16px;
+      .text {
+        width: 309px;
+      }
+    }
+    .payment-type {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      div {
+        @include inputdefault;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+    .e-money-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      input {
+        @include inputdefault;
+        @include m-sub-title2;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+
+      }
+      .e-money-number {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        input:focus {
+          border: 1px solid var(---burnt-orange);
+          outline: 1px solid var(---burnt-orange);
+        }
+        label {
+          text-transform: none;
+        }
+      }
+      .e-money-PIN {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        input:focus {
+          border: 1px solid var(---burnt-orange);
+          outline: 1px solid var(---burnt-orange);
+        }
+        label {
+          text-transform: none;
+        }
+      }
+    }
+    button {
+      @include defaultBtn;
+      background-color: var(---burnt-orange);
+      overflow: hidden;
+    }
+    #forgotPasswordBtn{
+      background-color: red;
+    }
+  }
+  .login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      a {
+        @include very-small;
+      }
+      
+    }
+  }
+}
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginForm {
+  display: none !important;
+  background-color: var(---burnt-orange);
+  border-radius: 18px 2px 0px 0px;
+  
+}
+
+.active {
+  display: flex !important;
+  top: 50%;
+  left: 50%;
+  transition: all 2.9s ease;
+  z-index: 2;
+  opacity: 100;
+  animation: transformanimation 3s ease;
+}
+@keyframes transformanimation {
+  from {
+    transform: translateY(-40px) scale(0.2);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+// media query
+@media (max-width: 1199px) {
+  .togglecartclass {
+    transform: translate(-10%);
+    display: flex;
+  }
+  #cart {
+    .payment-style-wrapper {
+      left: -90%;
+    }
+  }
+  main {
+    padding-bottom: 36px;
+    height: 0% !important;
+
+
+  }
+  .global-wrapper {
+    .go-back-link-wrapper {
+      display: flex;
+      width: 90%;
+    }
+    .cart-modal-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 775px) {
+  #cart {
+    .payment-style-wrapper {
+      left: 50%;
+    }
+  }
+}
+@media (max-width: 745px) {
+  #cart {
+    .payment-style-wrapper {
+      left: 50%;
+    }
+  }
+  main {
+    padding-top: 40px;
+  }
+  .cart-modal-wrapper {
+    .checkout {
+      h3 {
+        font-size: 28px !important;
+      }
+    }
+    input {
+      width: 280px !important;
+    }
+    .name-email {
+      flex-direction: column;
+      align-items: center;
+    }
+    .number {
+      align-items: center;
+      .label-container {
+        width: 280px !important;
+      }
+    }
+    .address {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+    }
+    .zipcode-city {
+      flex-direction: column;
+    }
+    .payment-method {
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      .text {
+        width: 270px !important ;
+      }
+      .payment-type {
+        div {
+          width: 280px;
+          display: flex;
+          input {
+            width: 20px !important;
+          }
+        }
+      }
+    }
+    .e-money-summary {
+      flex-direction: column;
+    }
+  }
+}
+@media (max-width: 330px) {
+  .cart-modal-wrapper {
+    .checkout {
+      h3 {
+        font-size: 28px !important;
+      }
+    }
+    input {
+      width: 100% !important;
+    }
+    .payment-method {
+      flex-direction: column;
+      width: 90%;
+      justify-content: center;
+      align-items: center;
+
+      .payment-type {
+        width: 90%;
+
+        div {
+          width: 100%;
+          display: flex;
+          input {
+            width: 20px !important;
+          }
+        }
+      }
+    }
+  }
+}

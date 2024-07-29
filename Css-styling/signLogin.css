@@ -1,0 +1,519 @@
+:root {
+  ---burnt-orange: #d87d4a;
+  ---charcoal: #101010;
+  ---off-white: #f1f1f1;
+  ---snow-white: #fafafa;
+  ---peach: #fbaf85;
+  ---pure-white: #ffffff;
+  ---pure-black: #000000;
+  ---light-black: rgb(19, 19, 19);
+  ---check-white: #cfcfcf;
+}
+
+body {
+  background-color: var(---off-white);
+}
+
+#toSignIn {
+  cursor: pointer;
+}
+
+.continue-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.d-none {
+  display: none;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#signup-form {
+  transition: all 2.9s ease forward;
+}
+
+.displayNone {
+  animation: displayanima 3s ease;
+  opacity: 0;
+}
+
+@keyframes displayanima {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.3;
+    display: none;
+    transform: scale(0.3);
+  }
+}
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.global-wrapper .cart-modal-wrapper,
+.global-wrapper .loginForm {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 29px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper,
+.global-wrapper .loginForm .cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  background-color: var(---pure-white);
+  border-radius: 8px;
+  align-items: center;
+  padding: 30px;
+  justify-content: center;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .password-error,
+.global-wrapper .loginForm .cart-wrapper .password-error {
+  color: red;
+  display: none;
+  width: 50%;
+  justify-content: center;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper label,
+.global-wrapper .loginForm .cart-wrapper label {
+  font-size: 0.75rem;
+  letter-spacing: -0.21px;
+  line-height: 1.02rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper h3,
+.global-wrapper .loginForm .cart-wrapper h3 {
+  font-size: 2rem;
+  letter-spacing: 1.15px;
+  line-height: 2.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+  text-transform: capitalize;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper p,
+.global-wrapper .loginForm .cart-wrapper p {
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details,
+.global-wrapper .loginForm .cart-wrapper .billing-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email {
+  display: flex;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email input:focus,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email input:focus {
+  border: 1px solid var(---burnt-orange);
+  outline: 1px solid var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div input,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div input {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-transform: capitalize;
+  caret-color: var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div #email,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div #email {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-transform: none;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div .label-container,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div .label-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div .label-container .emailerrorMessage,
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .name-email div .label-container .nameerrormessage,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div .label-container .emailerrorMessage,
+.global-wrapper .loginForm .cart-wrapper .billing-details .name-email div .label-container .nameerrormessage {
+  display: none;
+  justify-content: right;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.21;
+  line-height: 16.39px;
+  color: #cd2c2c;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .number,
+.global-wrapper .loginForm .cart-wrapper .billing-details .number {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .number input:focus,
+.global-wrapper .loginForm .cart-wrapper .billing-details .number input:focus {
+  border: 1px solid var(---burnt-orange);
+  outline: 1px solid var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .number input,
+.global-wrapper .loginForm .cart-wrapper .billing-details .number input {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .number .label-container,
+.global-wrapper .loginForm .cart-wrapper .billing-details .number .label-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 320px;
+}
+.global-wrapper .cart-modal-wrapper .cart-wrapper .billing-details .number .label-container .phonenoerrorMessage,
+.global-wrapper .loginForm .cart-wrapper .billing-details .number .label-container .phonenoerrorMessage {
+  display: none;
+  justify-content: right;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.21;
+  line-height: 16.39px;
+  color: #cd2c2c;
+}
+.global-wrapper .cart-modal-wrapper .summary,
+.global-wrapper .loginForm .summary {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.global-wrapper .cart-modal-wrapper .summary input:focus,
+.global-wrapper .loginForm .summary input:focus {
+  border: 1px solid var(---burnt-orange);
+  outline: 1px solid var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .summary input,
+.global-wrapper .loginForm .summary input {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-transform: capitalize;
+}
+.global-wrapper .cart-modal-wrapper .summary .address,
+.global-wrapper .loginForm .summary .address {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.global-wrapper .cart-modal-wrapper .summary .zipcode-city,
+.global-wrapper .loginForm .summary .zipcode-city {
+  display: flex;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .summary .zipcode-city div,
+.global-wrapper .loginForm .summary .zipcode-city div {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.global-wrapper .cart-modal-wrapper .summary .country,
+.global-wrapper .loginForm .summary .country {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.global-wrapper .cart-modal-wrapper .payment-method,
+.global-wrapper .loginForm .payment-method {
+  display: flex;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .payment-method .text,
+.global-wrapper .loginForm .payment-method .text {
+  width: 309px;
+}
+.global-wrapper .cart-modal-wrapper .payment-type,
+.global-wrapper .loginForm .payment-type {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .payment-type div,
+.global-wrapper .loginForm .payment-type div {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary,
+.global-wrapper .loginForm .e-money-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary input,
+.global-wrapper .loginForm .e-money-summary input {
+  border: 1px solid #cfcfcf;
+  width: 309px;
+  height: 56px;
+  border-radius: 8px;
+  padding-inline: 12px;
+  font-size: 0.93rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-number,
+.global-wrapper .loginForm .e-money-summary .e-money-number {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-number input:focus,
+.global-wrapper .loginForm .e-money-summary .e-money-number input:focus {
+  border: 1px solid var(---burnt-orange);
+  outline: 1px solid var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-number label,
+.global-wrapper .loginForm .e-money-summary .e-money-number label {
+  text-transform: none;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-PIN,
+.global-wrapper .loginForm .e-money-summary .e-money-PIN {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-PIN input:focus,
+.global-wrapper .loginForm .e-money-summary .e-money-PIN input:focus {
+  border: 1px solid var(---burnt-orange);
+  outline: 1px solid var(---burnt-orange);
+}
+.global-wrapper .cart-modal-wrapper .e-money-summary .e-money-PIN label,
+.global-wrapper .loginForm .e-money-summary .e-money-PIN label {
+  text-transform: none;
+}
+.global-wrapper .cart-modal-wrapper button,
+.global-wrapper .loginForm button {
+  width: 160px;
+  height: 48px;
+  font-size: 0.81rem;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  color: var(---pure-white);
+  background-color: var(---burnt-orange);
+  overflow: hidden;
+}
+.global-wrapper .cart-modal-wrapper #forgotPasswordBtn,
+.global-wrapper .loginForm #forgotPasswordBtn {
+  background-color: red;
+}
+.global-wrapper .login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.global-wrapper .login-wrapper p a {
+  font-size: 0.75rem;
+  letter-spacing: -0.21px;
+  line-height: 1.02rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm {
+  display: none !important;
+  background-color: var(---burnt-orange);
+  border-radius: 18px 2px 0px 0px;
+}
+
+.active {
+  display: flex !important;
+  top: 50%;
+  left: 50%;
+  transition: all 2.9s ease;
+  z-index: 2;
+  opacity: 100;
+  animation: transformanimation 3s ease;
+}
+
+@keyframes transformanimation {
+  from {
+    transform: translateY(-40px) scale(0.2);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 1199px) {
+  .togglecartclass {
+    transform: translate(-10%);
+    display: flex;
+  }
+  #cart .payment-style-wrapper {
+    left: -90%;
+  }
+  main {
+    padding-bottom: 36px;
+    height: 0% !important;
+  }
+  .global-wrapper .go-back-link-wrapper {
+    display: flex;
+    width: 90%;
+  }
+  .global-wrapper .cart-modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+}
+@media (max-width: 775px) {
+  #cart .payment-style-wrapper {
+    left: 50%;
+  }
+}
+@media (max-width: 745px) {
+  #cart .payment-style-wrapper {
+    left: 50%;
+  }
+  main {
+    padding-top: 40px;
+  }
+  .cart-modal-wrapper .checkout h3 {
+    font-size: 28px !important;
+  }
+  .cart-modal-wrapper input {
+    width: 280px !important;
+  }
+  .cart-modal-wrapper .name-email {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart-modal-wrapper .number {
+    align-items: center;
+  }
+  .cart-modal-wrapper .number .label-container {
+    width: 280px !important;
+  }
+  .cart-modal-wrapper .address {
+    display: flex;
+    flex-direction: column;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .cart-modal-wrapper .zipcode-city {
+    flex-direction: column;
+  }
+  .cart-modal-wrapper .payment-method {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-modal-wrapper .payment-method .text {
+    width: 270px !important;
+  }
+  .cart-modal-wrapper .payment-method .payment-type div {
+    width: 280px;
+    display: flex;
+  }
+  .cart-modal-wrapper .payment-method .payment-type div input {
+    width: 20px !important;
+  }
+  .cart-modal-wrapper .e-money-summary {
+    flex-direction: column;
+  }
+}
+@media (max-width: 330px) {
+  .cart-modal-wrapper .checkout h3 {
+    font-size: 28px !important;
+  }
+  .cart-modal-wrapper input {
+    width: 100% !important;
+  }
+  .cart-modal-wrapper .payment-method {
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-modal-wrapper .payment-method .payment-type {
+    width: 90%;
+  }
+  .cart-modal-wrapper .payment-method .payment-type div {
+    width: 100%;
+    display: flex;
+  }
+  .cart-modal-wrapper .payment-method .payment-type div input {
+    width: 20px !important;
+  }
+}
