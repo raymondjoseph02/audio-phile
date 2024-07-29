@@ -299,9 +299,9 @@ main {
   .togglecartclass {
     display: flex;
     position: fixed;
-    left: 50%;
+    right: 20%;
     top: 50%;
-    transform: translate(-50, -50%);
+    transform: translate(50%, -50%);
   }
 }
 .global-wrapper {
@@ -868,9 +868,9 @@ form input[type="radio"]:checked + .radioSpan::after {
   .togglecartclass {
     display: flex;
     position: fixed;
-    left: 50%;
+    right: 50% !important;
     top: 50%;
-    transform: translate(-50, -50%);
+    transform: translate(-50%, -50%);
   }
   // #cart {
   //   .payment-style-wrapper {
@@ -955,6 +955,13 @@ form input[type="radio"]:checked + .radioSpan::after {
     }
     .e-money-summary {
       flex-direction: column;
+    }
+  }
+}
+@media (max-width:430px) {
+  #cart{
+    .payment-style-wrapper{
+      width: 90vw;
     }
   }
 }

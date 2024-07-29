@@ -72,6 +72,14 @@ cartIcon.addEventListener('click', (e)=>{
       main.classList.toggle('opacitytoglleclass')
 
 })
+
+window.addEventListener("scroll", ()=>{
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+
+  }
+})
+
 fetch('./data.json').then((res)=>{
   res.json().then((actualData)=>{
     let item = actualData[0]
@@ -241,7 +249,9 @@ prdTotal.textContent = `$${totalPrice}`
 }
 
 async function clearCart() {
-let userid = localStorage.getItem('uid')
+  console.log(cartArry);
+  if (cartArry.length > 0) {
+    let userid = localStorage.getItem('uid')
 const subcollectionRef = collection(db, "users", userid, "cart");
 const querySnapshot = await getDocs(subcollectionRef);
 
@@ -252,6 +262,10 @@ cartArry=[]
 
 loadCartFromFirestore()
 totalPriceInCart()
+  } else {
+    alert("cart is empty")
+  }
+
 }
 removeAllFromCart.addEventListener('click', clearCart)
 

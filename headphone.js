@@ -75,6 +75,8 @@ let circleDiv = document.createElement('div')
 circleDiv.setAttribute('id', 'circleDiv')
 let cart = document.getElementById('cart')
 cart.insertBefore(circleDiv, cartWrapper)
+let main = document.querySelector('main')
+
 
 
 
@@ -83,17 +85,38 @@ hamMenu.addEventListener("click", ()=>{
     hamMenu.classList.toggle("active")
     offScreen.classList.toggle("active")
     hamBurger.classList.toggle("ps-fixed")
+  body.classList.toggle("position-fixed");
+
 });
 
 cartIcon.style.cursor= 'pointer'
 
 cartIcon.addEventListener('click', (e)=>{
   e.stopPropagation()
-  let main = document.querySelector('main')
     cartWrapper.classList.toggle("togglecartclass")
       main.classList.toggle('opacitytoglleclass')
 
 })
+
+window.addEventListener("scroll", ()=>{
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass')
+
+
+  }
+})
+
+main.addEventListener("click", (e)=>{
+  e.stopPropagation()
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass')
+
+
+  }
+})
+
 fetch("./data.json").then((res) => {
   res.json().then((data) => {
     const headerPhones = data.slice(1, 4);
@@ -267,7 +290,9 @@ prdTotal.textContent = `$${totalPrice}`
 }
 
 async function clearCart() {
-let userid = localStorage.getItem('uid')
+  console.log(cartArry);
+  if (cartArry.length > 0) {
+    let userid = localStorage.getItem('uid')
 const subcollectionRef = collection(db, "users", userid, "cart");
 const querySnapshot = await getDocs(subcollectionRef);
 
@@ -278,6 +303,10 @@ cartArry=[]
 
 loadCartFromFirestore()
 totalPriceInCart()
+  } else {
+    alert("cart is empty")
+  }
+
 }
 removeAllFromCart.addEventListener('click', clearCart)
 

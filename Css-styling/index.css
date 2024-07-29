@@ -594,7 +594,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0.3s ease;
-    z-index: 2;
+    z-index: 4;
   }
   .navigation-wrapper-section .navigation-wrapper #signOutBtn {
     font-size: 0.81rem;
@@ -646,10 +646,9 @@ body {
     top: 0;
     height: 100%;
     left: -470px;
-    max-width: 170px;
     padding: 94px 24px;
     transition: 0.3s ease;
-    z-index: 1;
+    z-index: 3;
     align-items: flex-start;
   }
   .navigation-wrapper-section .nav-links.active {
@@ -715,11 +714,11 @@ body {
     width: 90vw;
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
     height: 720px;
     justify-content: center;
     align-items: center;
     gap: 50px;
+    padding-inline: 20px;
   }
   .show-case-products .speaker-zx9 img {
     height: 237px;
@@ -729,6 +728,15 @@ body {
   .show-case-products .speaker-zx9 .speaker-zx9-textcontent {
     align-items: center;
     text-align: center;
+    width: auto;
+    height: auto;
+  }
+  .show-case-products .speaker-zx9 .speaker-zx9-textcontent h2 {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    line-height: 2.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
   .show-case-products .speaker-zx7 {
     width: 90vw;
@@ -763,6 +771,11 @@ body {
   .banner-section .banner-textcontent h2 {
     width: 573px;
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1.15px;
+    line-height: 2.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
   .banner-section .banner-textcontent p {
     text-align: center;
@@ -852,6 +865,10 @@ body {
   .second-section .product-shop-section div img {
     width: 90px;
   }
+  .nav-links.active {
+    left: 0;
+    width: 100vw;
+  }
 }
 @media (max-width: 767.98px) {
   .navigation-wrapper-section .navigation-wrapper {
@@ -870,6 +887,9 @@ body {
   }
   .hero-section {
     background-size: 100%;
+  }
+  .hero-section .product-title {
+    width: auto !important;
   }
   .hero-section .product-title h1 {
     font-size: 2rem !important;
@@ -902,7 +922,7 @@ body {
   .show-case-products .speaker-zx7 {
     background-position: center;
     background-repeat: no-repeat;
-    padding-left: 0;
+    padding-left: 0 !important;
     justify-content: center;
     display: flex;
   }

@@ -231,6 +231,7 @@ main {
         text-wrap: wrap;
         .prdut-title {
           width: 500px;
+          @include heading2 ;
         }
       }
     }
@@ -260,6 +261,7 @@ main {
       .hp-xx99-mark-ii-text{
         .prdut-title{
           width: fit-content;
+          font-size: 2rem !important;
         }
       }
     }

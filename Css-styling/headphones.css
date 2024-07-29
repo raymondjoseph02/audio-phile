@@ -176,6 +176,11 @@ main #hp-prduts-wrapper .marginblock {
   }
   #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-text .prdut-title {
     width: 500px;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    line-height: 2.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 @media (max-width: 900px) {
@@ -204,5 +209,6 @@ main #hp-prduts-wrapper .marginblock {
   #hp-prduts-wrapper .hp-xx99-mark-ii .hp-xx99-mark-ii-text .prdut-title {
     width: -moz-fit-content;
     width: fit-content;
+    font-size: 2rem !important;
   }
 }

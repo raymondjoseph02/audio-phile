@@ -225,9 +225,9 @@ main {
 #cart .togglecartclass {
   display: flex;
   position: fixed;
-  left: 50%;
+  right: 20%;
   top: 50%;
-  transform: translate(-50, -50%);
+  transform: translate(50%, -50%);
 }
 
 .global-wrapper {
@@ -923,9 +923,9 @@ form input[type=radio]:checked + .radioSpan::after {
   .togglecartclass {
     display: flex;
     position: fixed;
-    left: 50%;
+    right: 50% !important;
     top: 50%;
-    transform: translate(-50, -50%);
+    transform: translate(-50%, -50%);
   }
   main {
     padding-bottom: 76px;
@@ -987,6 +987,11 @@ form input[type=radio]:checked + .radioSpan::after {
   }
   .cart-modal-wrapper .e-money-summary {
     flex-direction: column;
+  }
+}
+@media (max-width: 430px) {
+  #cart .payment-style-wrapper {
+    width: 90vw;
   }
 }
 @media (max-width: 330px) {

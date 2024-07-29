@@ -77,6 +77,13 @@ cartIcon.addEventListener("click", (e) => {
   main.classList.toggle("opacitytoglleclass");
 });
 
+window.addEventListener("scroll", ()=>{
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+
+  }
+})
+
 let userId = localStorage.getItem("uid");
 if (userId != null) {
   console.log(userId);
@@ -207,17 +214,23 @@ function totalPriceInCart() {
 }
 
 async function clearCart() {
-  let userid = localStorage.getItem("uid");
-  const subcollectionRef = collection(db, "users", userid, "cart");
-  const querySnapshot = await getDocs(subcollectionRef);
+  console.log(cartArry);
+  if (cartArry.length > 0) {
+    let userid = localStorage.getItem('uid')
+const subcollectionRef = collection(db, "users", userid, "cart");
+const querySnapshot = await getDocs(subcollectionRef);
 
-  const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
-  await Promise.all(deletePromises);
+const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
+await Promise.all(deletePromises);
 
-  cartArry = [];
+cartArry=[]
 
-  loadCartFromFirestore();
-  totalPriceInCart();
+loadCartFromFirestore()
+totalPriceInCart()
+  } else {
+    alert("cart is empty")
+  }
+
 }
 removeAllFromCart.addEventListener("click", clearCart);
 

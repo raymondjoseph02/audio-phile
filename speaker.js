@@ -101,8 +101,22 @@ cartIcon.addEventListener("click", (e) => {
   let main = document.querySelector("main");
   const cartWrapper = document.querySelector(".payment-style-wrapper");
   cartWrapper.classList.toggle("togglecartclass");
-  main.classList.toggle("opacitytoglleclass");
+  // main.classList.toggle("opacitytoglleclass");
 });
+
+
+
+window.addEventListener("scroll", ()=>{
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+    
+  }
+})
+
+
+
+
+
 function displayInCart() {
   let prdInCart = document.getElementById("productInCart");
   prdInCart.innerHTML = "";
@@ -239,19 +253,24 @@ function totalPriceInCart() {
   let prdTotal = document.getElementById("prdTotal");
   prdTotal.textContent = `$${newTotal}`;
 }
-
 async function clearCart() {
-  let userid = localStorage.getItem("uid");
-  const subcollectionRef = collection(db, "users", userid, "cart");
-  const querySnapshot = await getDocs(subcollectionRef);
+  console.log(cartArry);
+  if (cartArry.length > 0) {
+    let userid = localStorage.getItem('uid')
+const subcollectionRef = collection(db, "users", userid, "cart");
+const querySnapshot = await getDocs(subcollectionRef);
 
-  const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
-  await Promise.all(deletePromises);
+const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
+await Promise.all(deletePromises);
 
-  cartArry = [];
+cartArry=[]
 
-  loadCartFromFirestore();
-  totalPriceInCart();
+loadCartFromFirestore()
+totalPriceInCart()
+  } else {
+    alert("cart is empty")
+  }
+
 }
 removeAllFromCart.addEventListener("click", clearCart);
 
