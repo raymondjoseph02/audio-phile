@@ -52,6 +52,7 @@ const allLinks = document.querySelectorAll('a')
 let cartArry =  []
 const cartWrapper = document.querySelector(".payment-style-wrapper");
 const cart = document.getElementById('cart')
+const main = document.querySelector("main")
 let circleDiv = document.createElement("div")
   circleDiv.setAttribute("id", "circleDiv")
   cart.insertBefore(circleDiv,cartWrapper)
@@ -67,7 +68,6 @@ cartIcon.style.cursor= 'pointer'
 
 cartIcon.addEventListener('click', (e)=>{
   e.stopPropagation()
-  let main = document.querySelector('main')
     cartWrapper.classList.toggle("togglecartclass")
       main.classList.toggle('opacitytoglleclass')
 
@@ -75,7 +75,18 @@ cartIcon.addEventListener('click', (e)=>{
 
 window.addEventListener("scroll", ()=>{
   if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass");
+    main.classList.toggle('opacitytoglleclass')
+
+
+  }
+})
+main.addEventListener("click", (e)=>{
+  e.stopPropagation()
+  if (cartWrapper.classList.contains("togglecartclass")) {
     cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass')
+
 
   }
 })

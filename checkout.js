@@ -66,12 +66,10 @@ const countryNameRegex = /^[a-zA-Z\s-]+$/;
 const cartWrapper = document.querySelector(".payment-style-wrapper");
 let signedInUser = null;
 let cartArry = [];
-// const successfullyModal = document.getElementsByClassName('successfull-modal')[0]
 const successfullyModal = document.querySelector('.successfull-modal')
 const main = document.querySelector('main')
 const closeModal = document.getElementById("closeModal")
 
-// successfullyModal.classList.to('modal-toggle')
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -93,12 +91,13 @@ hamMenu.addEventListener("click", () => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   textinputvalidation();
-  // errorMessage();
   const isValid = textinputvalidation()
   if (isValid) {
 successfullyModal.setAttribute('id', 'modalToggle')
-main.classList.toggle('opacitytoglleclass')
-// body.classList.toggle("position-fixed");
+main.classList.toggle('opacitytoglleclass');
+document.getElementById("modalToggle").scrollIntoView({
+  behavior:"smooth"
+})
 allInputTypeText.forEach(input =>{
   input.value = ""
 })
@@ -211,9 +210,6 @@ form.addEventListener("input", () => {
   }
 });
 cartIcon.addEventListener("click", () => {
-  // let main = document.querySelector("main");
-  // cartWrapper.classList.toggle("togglecartclass");
-  // main.classList.toggle("opacitytoglleclass");
   location.reload()
 });
 const backBtn = document.getElementById('backBtn')
@@ -266,48 +262,6 @@ async function loadCartFromFirestore() {
 }
 loadCartFromFirestore();
 
-/*function displayInCart() {
-  let prdInCart = document.getElementById("productInCart");
-  prdInCart.innerHTML = "";
-
-  cartArry.forEach((item,) => {
-    const price = item.price.toLocaleString()
-    prdInCart.innerHTML += `
-        <div class="image-price-wrapper">
-          <div class="item-image">
-            <img src="${item.img}" alt="">
-          </div>
-          <div class="text-price-wrapper">
-            <div class="price">
-              <h3>${item.name}</h3>
-              <span>$${price}</span>
-            </div>
-          </div>
-        </div>
-        
-      `;
-    let nop = document.createElement("div");
-    nop.classList.add("nop");
-    let newDiv = document.createElement("div");
-    nop.appendChild(newDiv);
-
-    let btnMinus = document.createElement("button");
-    let btnAdd = document.createElement("button");
-    btnAdd.setAttribute("id", "addQuantityInCart");
-    let itemQty = document.createElement("p");
-    itemQty.textContent = `${item.quantity}`;
-    itemQty.setAttribute("id", "itemQty");
-    btnMinus.addEventListener("click", minusQuantityInCart);
-    btnMinus.textContent = "-";
-    btnAdd.addEventListener("click", addQuantityInCart);
-    btnAdd.textContent = "+";
-    newDiv.appendChild(btnMinus);
-    newDiv.appendChild(itemQty);
-    newDiv.appendChild(btnAdd);
-    prdInCart.appendChild(nop);
-  });
-
-}*/
 
 async function totalPriceInCart() {
   let totalPrice = cartArry.reduce((accumulator, currentItem) => {
@@ -335,46 +289,15 @@ async function grandCalcUlation() {
   `
 }
 
-/*async function clearCart() {
-  let userid = localStorage.getItem("uid");
-  const subcollectionRef = collection(db, "users", userid, "cart");
-  const querySnapshot = await getDocs(subcollectionRef);
 
-  const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
-  await Promise.all(deletePromises);
-
-  cartArry = [];
-
-  loadCartFromFirestore();
-  totalPriceInCart();
-}*/
-/*removeAllFromCart.addEventListener("click", clearCart);
-
-function minusQuantityInCart() {
-  cartArry[index].quantity -= 1;
-  cartArry[index].price =
-    cartArry[index].quantity *
-    (cartArry[index].price / (cartArry[index].quantity + 1));
-  displayInCart();
-  totalPriceInCart();
-
-  if (cartArry[index].quantity < 1) {
-    console.log(index);
-    cartArry.splice(index, 1);
-    console.log(cartArry);
-    displayInCart();
-    totalPriceInCart();
-  }
-  console.log("minusQuantityInCart");
-}
-
-function addQuantityInCart() {
-  console.log("addQuantityInCart");
-}*/
 
 function summaryInToTAL() {
   let summary = document.getElementById("cartSummary");
   cartArry.forEach((item)=>{
+    if (item.name.length > 10) {
+      name = `${item.name.slice(0,10)}...`
+      console.log(name);
+    }
     summary.innerHTML+=`<div class="items-in-cart">
                 <div class="image-price-wrapper">
                   <div class="item-image">
@@ -382,7 +305,7 @@ function summaryInToTAL() {
                   </div>
                   <div class="text-price-wrapper">
                     <div class="price">
-                      <h3>${item.name}</h3>
+                      <h3>${name}</h3>
                       <span>$${item.price.toLocaleString()}</span>
                     </div>
                 </div>
@@ -398,8 +321,8 @@ function summaryInToTAL() {
   function successfullyModalTotal() {
     let summary = document.getElementById("items");
     cartArry.forEach((item)=>{
-      if (item.name > 20) {
-        name = name.slice(0,20)
+      if (item.name > 10) {
+        name = `${name.slice(0,10)}...`
       }
       summary.innerHTML+=`
                 <div class="item-wrapper">

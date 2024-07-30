@@ -390,7 +390,6 @@ main {
 
 .loginForm {
   display: none !important;
-  background-color: var(---burnt-orange);
   border-radius: 18px 2px 0px 0px;
 }
 

@@ -846,10 +846,10 @@ form input[type="radio"]:checked + .radioSpan::after {
 #modalToggle{
   display: flex;
   animation: all 2000ms ease;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  transform: translate(-50%, -0%);
 }
 @keyframes fade-in {
   0% {
@@ -859,7 +859,6 @@ form input[type="radio"]:checked + .radioSpan::after {
   100% {
     opacity: 1;
     transform: translateY(0px) scale(1);
-    // transform: translate(50%);
   }
 }
 // media query
@@ -872,11 +871,6 @@ form input[type="radio"]:checked + .radioSpan::after {
     top: 50%;
     transform: translate(-50%, -50%);
   }
-  // #cart {
-  //   .payment-style-wrapper {
-  //     left: -90%;
-  //   }
-  // }
   main {
     padding-bottom: 76px;
   }
@@ -892,26 +886,51 @@ form input[type="radio"]:checked + .radioSpan::after {
     }
   }
 }
-@media (max-width: 775px) {
-  // #cart {
-  //   .payment-style-wrapper {
-  //     left: 50%;
-  //   }
-  // }
+
+@media (max-width: 975px) {
+  #modalToggle{
+    display: flex;
+    animation: all 2000ms ease;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+  }
 }
 @media (max-width: 745px) {
-  // #cart {
-  //   .payment-style-wrapper {
-  //     left: 50%;
-  //   }
-  // }
+  .successfull-modal {
+    width: 90vw;
+    height: auto;
+    h3{
+      font-size: 1.6rem;
+    }
+    .icon{
+      width: 45px !important; 
+      height: 45px !important;
+      .mark{
+        transform: translate(-50%, -50%) rotate(48deg) !important;
+        top: 50%;
+        left: 50%;
+      }
+
+    }
+    .order-container{
+      grid-template-columns: 1fr !important;
+      grid-auto-rows: 2fr 1fr ;
+      height: auto !important;
+      justify-content: space-between !important;
+      .grand-prize{
+        border-radius: 0px 0px 8px 8px !important;
+      }
+    }
+  }
   main {
     padding-top: 50px;
   }
   .cart-modal-wrapper {
     .checkout {
       h3 {
-        font-size: 28px !important;
+        font-size: 20px !important;
       }
     }
     input {

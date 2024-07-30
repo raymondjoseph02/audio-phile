@@ -45,13 +45,13 @@ const cart = document.getElementById('cart')
 let circleDiv = document.createElement("div")
   circleDiv.setAttribute("id", "circleDiv")
   cart.insertBefore(circleDiv,cartWrapper)
+  let main = document.querySelector("main");
 console.log(cart);
 
 
 cartIcon.style.cursor= 'pointer'
 
 cartIcon.addEventListener("click", () => {
-  let main = document.querySelector("main");
   const cartWrapper = document.querySelector(".payment-style-wrapper");
   cartWrapper.classList.toggle("togglecartclass");
   main.classList.toggle("opacitytoglleclass");
@@ -60,11 +60,23 @@ cartIcon.addEventListener("click", () => {
 
 window.addEventListener("scroll", ()=>{
   if (cartWrapper.classList.contains("togglecartclass")) {
-    cartWrapper.classList.toggle("togglecartclass")
+    cartWrapper.classList.toggle("togglecartclass");
+    main.classList.toggle('opacitytoglleclass')
+
 
   }
 })
 
+
+main.addEventListener("click", (e)=>{
+  e.stopPropagation()
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass')
+
+
+  }
+})
 
 
 fetch("./data.json")

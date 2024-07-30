@@ -862,10 +862,7 @@ body {
       }
     }
   }
-  .nav-links.active {
-    left: 0;
-    width: 100vw;
-  }
+  
 }
 @media (max-width: 767.98px) {
   .navigation-wrapper-section {
@@ -989,6 +986,10 @@ body {
 @media (max-width: 560px) {
   .hero-section {
     background-size: 130%;
+  }
+  .nav-links.active {
+    left: 0;
+    width: 100vw;
   }
 }
 @media (max-width: 416px) {

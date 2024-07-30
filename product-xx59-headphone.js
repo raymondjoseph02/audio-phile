@@ -45,12 +45,12 @@ const cart = document.getElementById("cart");
 let circleDiv = document.createElement("div");
 circleDiv.setAttribute("id", "circleDiv");
 cart.insertBefore(circleDiv, cartWrapper);
+let main = document.querySelector("main");
 console.log(cart);
 
 cartIcon.style.cursor = "pointer";
 
 cartIcon.addEventListener("click", () => {
-  let main = document.querySelector("main");
   cartWrapper.classList.toggle("togglecartclass");
   main.classList.toggle("opacitytoglleclass");
 });
@@ -58,6 +58,18 @@ cartIcon.addEventListener("click", () => {
 window.addEventListener("scroll", ()=>{
   if (cartWrapper.classList.contains("togglecartclass")) {
     cartWrapper.classList.toggle("togglecartclass")
+
+  }
+})
+
+main.addEventListener("click", (e)=>{
+  e.stopPropagation()
+  if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass');
+    main.classList.toggle('opacitytoglleclass')
+
+
 
   }
 })

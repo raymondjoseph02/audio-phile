@@ -57,7 +57,9 @@ cartIcon.addEventListener("click", () => {
 
 window.addEventListener("scroll", ()=>{
   if (cartWrapper.classList.contains("togglecartclass")) {
-    cartWrapper.classList.toggle("togglecartclass")
+    cartWrapper.classList.toggle("togglecartclass");
+    main.classList.toggle('opacitytoglleclass')
+
 
   }
 })

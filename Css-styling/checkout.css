@@ -903,10 +903,10 @@ form input[type=radio]:checked + .radioSpan::after {
 #modalToggle {
   display: flex;
   animation: all 2000ms ease;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  transform: translate(-50%, 0%);
 }
 
 @keyframes fade-in {
@@ -940,12 +940,47 @@ form input[type=radio]:checked + .radioSpan::after {
     width: 90%;
   }
 }
+@media (max-width: 975px) {
+  #modalToggle {
+    display: flex;
+    animation: all 2000ms ease;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
 @media (max-width: 745px) {
+  .successfull-modal {
+    width: 90vw;
+    height: auto;
+  }
+  .successfull-modal h3 {
+    font-size: 1.6rem;
+  }
+  .successfull-modal .icon {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .successfull-modal .icon .mark {
+    transform: translate(-50%, -50%) rotate(48deg) !important;
+    top: 50%;
+    left: 50%;
+  }
+  .successfull-modal .order-container {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 2fr 1fr;
+    height: auto !important;
+    justify-content: space-between !important;
+  }
+  .successfull-modal .order-container .grand-prize {
+    border-radius: 0px 0px 8px 8px !important;
+  }
   main {
     padding-top: 50px;
   }
   .cart-modal-wrapper .checkout h3 {
-    font-size: 28px !important;
+    font-size: 20px !important;
   }
   .cart-modal-wrapper input {
     width: 280px !important;

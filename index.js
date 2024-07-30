@@ -49,6 +49,14 @@ let cartArry = [];
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search).values();
 console.log(params);
+const cartWrapper = document.querySelector(".payment-style-wrapper");
+console.log(cartWrapper);
+const main = document.querySelector("main")
+cartIcon.style.cursor= 'pointer'
+
+
+
+
 hamMenu.addEventListener("click", () => {
   hamMenu.classList.toggle("active");
   offScreen.classList.toggle("active");
@@ -66,20 +74,28 @@ window.addEventListener("pageshow", function () {
     link.classList.remove("visited");
   });
 });
-cartIcon.style.cursor= 'pointer'
 
 cartIcon.addEventListener("click", (e) => {
   e.stopPropagation();
-
-  let main = document.querySelector("main");
-  const cartWrapper = document.querySelector(".payment-style-wrapper");
   cartWrapper.classList.toggle("togglecartclass");
   main.classList.toggle("opacitytoglleclass");
 });
 
 window.addEventListener("scroll", ()=>{
   if (cartWrapper.classList.contains("togglecartclass")) {
+    cartWrapper.classList.toggle("togglecartclass");
+    main.classList.toggle("opacitytoglleclass");
+
+
+  }
+})
+
+main.addEventListener("click", (e)=>{
+  e.stopPropagation()
+  if (cartWrapper.classList.contains("togglecartclass")) {
     cartWrapper.classList.toggle("togglecartclass")
+    main.classList.toggle('opacitytoglleclass')
+
 
   }
 })
