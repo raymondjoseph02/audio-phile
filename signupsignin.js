@@ -123,7 +123,19 @@ async function createuser() {
       useremail,
       userPassword
     );
-    alert("account created successfully");
+    Toastify({
+      text: "acount created sucessfully",
+      className: "toastify-sucessfully",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "green",
+      },
+    }).showToast();
     userstatus = true;
     uid = userCredential.user.uid;
     console.log("User ID: ", uid);
@@ -174,24 +186,55 @@ async function loginUser(e) {
   console.log('loading');
   const email = document.getElementById('signInEmail').value;
   const password = document.getElementById('signInPassword').value;
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    console.log('User logged in:', user);
-
-    const userDocRef = doc(db, 'users', user.uid);
-    const userDoc = await getDoc(userDocRef);
-
-    if (userDoc.exists()) {
-      console.log('User document loaded from Firestore:', userDoc.data());
-    } else {
-      console.log('No user document found in Firestore');
+  if (emailRegex.test(email) && fullNameRegex.test(password)) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log('User logged in:', user);
+  
+      const userDocRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userDocRef);
+  
+      if (userDoc.exists()) {
+        console.log('User document loaded from Firestore:', userDoc.data());
+      } else {
+        console.log('No user document found in Firestore');
+      }
+  
+      localStorage.setItem("uid", user.uid);
+      window.location.href = `./index.html?${user.uid}`;
+    } catch (error) {
+      // console.error('Error logging in:', error.code, error.message);
+      const errorMessage = error.message
+      if (errorMessage == `Firebase: Error (auth/invalid-credential).`) {
+        Toastify({
+          text: "invaild credentials",
+          className: "toastify-error",
+          duration: 4000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "red",
+          },
+        }).showToast();
+      }
     }
-
-    localStorage.setItem("uid", user.uid);
-    window.location.href = `./index.html?${user.uid}`;
-  } catch (error) {
-    console.error('Error logging in:', error.code, error.message);
+  } else {
+    Toastify({
+      text: "invaild credentials",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "red",
+      },
+    }).showToast();
   }
 }
 

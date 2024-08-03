@@ -267,14 +267,35 @@ async function addTocart() {
           price: updatedPrice,
         });
 
-        console.log(
-          "Item quantity and price updated in Firestore cart successfully"
-        );
+        Toastify({
+          text: "added to cart",
+          className: "toastify-error",
+          duration: 2000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "#d87d4a",
+          },
+        }).showToast();
       } else {
         // If the product doesn't exist, add it to the cart collection
         await addDoc(cartCollectionRef, addprd);
-        console.log("Item added to Firestore cart successfully");
-      }
+        Toastify({
+          text: "added to cart",
+          className: "toastify-error",
+          duration: 2000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "#d87d4a",
+          },
+        }).showToast();      }
     } else {
       console.error("No user signed in.");
     }
